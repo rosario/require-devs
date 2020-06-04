@@ -1,6 +1,6 @@
 # require('devs');
 
-![screenshot](https://raw.github.com/rosario/require-devs/gh-pages/img/require-devs.png)
+![screenshot](https://github.com/rosario/require-devs/blob/gh-pages/require-devs.png)
 
 
 ### Fork -n- Go!
