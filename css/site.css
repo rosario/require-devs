@@ -1,14 +1,14 @@
 /* Page Specific CSS */
 
-body {font-family: Lato; background: #fff; color: #333; font-size: 16px; border: 24px #f0db4f solid; margin: 0px; padding: 10px 10px 100px 10px;}
+body {font-family: Lato; background: #fff; color: #333; font-size: 16px; margin: 0px; padding: 10px 10px 100px 10px;}
 h1 {font-size: 80px; font-family: Bangers; font-weight: normal; margin: 0px;}
 h2 {font-size: 50px; font-family: Bangers; font-weight: normal; margin: 11px 0px;}
 h3 {font-family: Bangers; font-size: 30px; margin: 10px 0px;}
 h4 {font-family: Lato; font-size: 24px;}
 
 img {width: 100%;} 
-p a, a {color: #333; text-decoration: none; padding-bottom: 0px; border-bottom: 1px #FD9393 solid;}
-a:hover {color: #47CCFC;}
+p a, a {color: #333; text-decoration: none; padding-bottom: 0px; border-bottom: 1px #2aabda solid;}
+a:hover {color: #2896eb;}
 small {padding: 10px 0px; font-size: 10px;}
 p {margin: 0px; padding: 0px; font-size: 12px;}
 li {line-height: 19px; font-size: 12px;}
@@ -18,7 +18,7 @@ a.button {border: none;}
 pre {word-wrap: break-word; padding: 14px; background: #F0F0F0; }
 code {font-family: "Consolas", "Ubuntu Mono", monospace; line-height: 22px; font-size: 13px; color: #636363; font-weight: normal;}
 
-.red-text {color: #FD9393;}
+.red-text {color: #2aabda;}
 
 /* #map {height: 400px; max-width: 530px; min-width: 300px; background: #DADADA;} */
 #map {height: 250px; min-width: 300px; background: #DADADA;}
@@ -33,15 +33,18 @@ code {font-family: "Consolas", "Ubuntu Mono", monospace; line-height: 22px; font
 ul.nav {list-style: none; margin: 0px; padding: 0px;}
 ul.nav li {display: inline; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding-right: 4px;}
 ul.nav li a {border: none;}
-ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
+ul.nav li a:hover {border-bottom: 1px #2aabda solid;}
 
 #wrapper {margin: 0px auto; max-width: 900px; padding-top: 40px; /*margin-left: 250px;*/}
 
-.button {padding: 5px 5px; background-color: #BEBEBE; font-size: 10px; color: #fff;}
-.button:hover {background: #B9FCFC; color: #47CCFC;}
-.fauxButton {padding: 5px 5px; background-color: #FF4646; font-size: 11px; color: #fff; display: inline;}
-.fauxButton .selected {background-color: #FF4646;}
-.colorText {color: #FF4646; text-transform: uppercase; font-weight: 700;}
+.button {padding: 5px 5px; background-color: #2f3f3f; font-size: 10px; color: #fff;}
+.button.clear{padding: 5px 5px; background-color: #2896eb; font-size: 10px; color: #fff;}
+.button.resetMap{padding: 5px 5px; background-color: #323ca0; font-size: 10px; color: #fff;}
+.button.linkedin{padding: 5px 5px; background-color: #1964a5; font-size: 10px; color: #fff;}
+.button:hover {background: #f0db4f; color: #2f3f3f;}
+.fauxButton {padding: 5px 5px; background-color: #2aabda; font-size: 11px; color: #fff; display: inline;}
+.fauxButton .selected {background-color: #2aabda;}
+.colorText {color: #2aabda; text-transform: uppercase; font-weight: 700;}
 
 .leaflet-popup-content h2 {font-family: Lato; font-size: 14px; text-transform: uppercase;}
 
@@ -50,17 +53,25 @@ ul.nav li a:hover {border-bottom: 1px #FD9393 solid;}
 #latestSpot ul, #selectedSpot ul {list-style: none; margin-top: 12px 0px; padding: 0px;}
 .category {text-transform: uppercase; font-size: 9px; letter-spacing: .2em; padding-right: 6px;}
 
-#info p {font-size: 14px; padding: 4px; line-height: 19px; font-weight: 300;}
+#info p {font-size: 16px; padding: 4px; line-height: 19px; font-weight: 300;}
 #info {border-top: 4px #F8F8F8 solid;}
-
+#thanks {border-top: 4px #F8F8F8 solid;}
+#thanks p {font-size: 16px; padding: 4px; line-height: 19px; font-weight: 300;}
 #hackSpotsTable {cursor: pointer; background: #fff; overflow-x: auto; padding-bottom: 20px;}
 #hackSpotsTable table {min-width: 900px;}
-#hackSpotsTable .tHeader:hover {color: #FF4646;}
+#hackSpotsTable .tHeader:hover {color: #2aabda;}
 .tHeader::after {content: " \2193 \2191 "; font-size: 10px; padding-left: 3px;}
-.spotRow:hover {color: #FF4646;}
+.spotRow:hover {color: #2aabda;}
 .spotRow {border-left: 3px solid #ff00ff;}
 .hideRow {display: none;}
-.selectedRow {color: #FF4C0D;}
+.selectedRow {color: #2aabda;}
+
+table {text-align: left; width: 100%}
+  th {padding: 10px 0px;}
+  td, text {padding: 3px 0 3px 0; font-size: 14px;}
+  #tableFilter {margin: 12px 0px; border: none; border-bottom: 1px solid #333; background-color: transparent; padding: 0px; font-size: 13px; height: 22px;}
+  .noMatches {margin-left: 20px; font-size: 11px; font-style: italic; visibility: hidden;}
+
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 1024px) {
   body {border: 20px #F8F8F8 solid; margin: 0px; padding: 20px 20px 80px 20px;}

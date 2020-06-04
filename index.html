@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
     <head>
         <title>Require Devs </title>
         <meta charset='utf-8'>
@@ -6,8 +6,6 @@
         <script type="text/javascript" src='js/tabletop1.3.4.js'></script>
         <script type="text/javascript" src='js/sheetsee.js'></script>
         <script type="text/javascript" src='js/leaflet.markercluster.js'></script>
-        <link rel="shortcut icon" href="https://raw.github.com/jlord/hack-spots/master/favico.png"/>
-
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href='https://api.tiles.mapbox.com/mapbox.js/v1.4.0/mapbox.css' rel='stylesheet' />
         <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic'>
@@ -19,17 +17,20 @@
     </head>
 <body>
     <div id="wrapper">
-        <h1>Require Devs </h1>
+        <h1 role="banner">Require ( 'Devs' ) ;</h1>
+             
         <div>
             <ul class="nav">
-                <li><strong>Devs looking for their next gig</strong></li>
+                <li><strong>A List of software developers looking for their next job</strong></li>
                 <li><a href="#info">INFO</a> -</li>
                 <li><a href="http://jlord.github.com/sheetsee.js" target="_blank">POWERED BY SHEETSEE.JS</a> -</li>
-                <li><a href="http://www.github.com/jlord/hack-spots" target="_blank">GITHUB</a> -</li>
-                <li><a href="http://www.twitter.com/jllord" target="_blank">Made by @_SARHUS</a></li>
-                <li><a href="http://www.twitter.com/jllord" target="_blank">Thanks to @JLLORD</a></li>
+                <li><a href="https://github.com/rosario/require-devs" target="_blank">GITHUB</a> -</li>
+                <li><a href="https://www.twitter.com/_sarhus" target="_blank">Made by @_SARHUS</a></li>
+                <!-- <li><a href="https://www.twitter.com/jllord" target="_blank">Thanks to @JLLORD</a></li> -->
             </ul>
         </div>
+                        
+                    
         <div class="container">
             <div id="map"></div>
         </div>
@@ -40,24 +41,27 @@
             <div id="hackSpotsTable"></div>
         </div>
         <div id="info" class="container">
-            <h3>Contribute!</h3>
-            <div id="theNumberofSpots"></div>
-            <p>This website data comes from 
+            <h2>What is it? </h2>
+            <p> It is a collaborative effort to provide a list of developers currently looking for their next project or employment.
+            </p>
+            
+            <p>Data comes from 
                 <a href="https://docs.google.com/spreadsheets/d/1cYHiwFGxiY3DoyID17Oq0wIi_GaUDt1rm1nK1rK2SKk/edit" target="_blank">
-                    this Google Spreadsheet</a>. Click and add your details to the bottom of the list! 
+                    this Google Spreadsheet</a>. <strong>Feel free to add your details to the bottom of the list!</strong>
                 </p>
 
             <p> For the map you'll need to <strong>get the lat and long</strong> of your location, you can get that
             <a href="http://www.latlong.net/" target="_blank">here</a>.
             Please try to fill out all the columns.</p>
 
-            <h3>Info</h3>
-            <p> Just a list of developers looking for their next contract. It was possible thanks to 
-            <a href="http://www.twitter.com/jllord" target="_blank">@JLLORD</a> and her work on  
-            <a href="https://github.com/jlord/hack-spots" target="_blank">hack-spots</a>.
-                
-            </p>
 
+        </div>
+
+        <div id="thanks" class="container">
+            <h3>Thanks</h3>
+            <p> This website is a fork of <a href="https://github.com/jlord/hack-spots" target="_blank">hack-spots</a> made by
+                <a href="http://www.twitter.com/jllord" target="_blank">@jllord</a>
+            </p>
         </div>
     </div><!-- end wrapper -->
 
@@ -76,17 +80,13 @@
                 <tr id="{{rowNumber}}" class="spotRow">
                     <td>{{name}}</td>
                     <td><a class="button" href="{{github}}">Github</a></td>
-                    <td><a class="button" href="{{linkedin}}">LinkedIn</a></td>
+                    <td><a class="button linkedin" href="{{linkedin}}">LinkedIn</a></td>
                     <td>{{skills}}</td>
                     <td>{{city}}</td>
                     <td>{{country}}</td>
                 </tr>
             {{/rows}}
         </table>
-    </script>
-
-    <script id="theNumberofSpots" type="text/html">
-        <p><strong><span class="red-text">{{numberOfSpots}}</span> devs looking for their next gig</p>
     </script>
 
     <script type="text/javascript">
@@ -115,7 +115,7 @@
 
             // create map, tilelayer (map background), markers and popups
             var map = Sheetsee.loadMap("map")
-            Sheetsee.addTileLayer(map, 'jllord.n7aml2bc')
+            Sheetsee.addTileLayer(map, 'https://a.tiles.mapbox.com/v3/aj.1x1-degrees.json')
             var markerLayer = Sheetsee.addMarkerLayer(geoJSON, map, "<h2>{{ name }}</h2>", true)
 
             // find the latest spot with the most important
@@ -136,7 +136,7 @@
                 var dataElement = Sheetsee.getMatches(gData, rowNumber, "rowNumber")
                 $('#latestSpot').css("display", "none")
                 var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-                map.setView(selectedCoords, 14)
+                map.setView(selectedCoords, 5)
             })
 
             // so that the first map and info that loads
@@ -180,12 +180,6 @@
                 $('#selectedSpot').css("display", "none")
                 map.setView([0,0], 1)
             })
-
-            // find total number of spots added
-            var theNumberofSpots = Sheetsee.ich.theNumberofSpots({
-                numberOfSpots: gData.length
-            })
-            $('#theNumberofSpots').html(theNumberofSpots)
 
             if(window.location.hash) {
                 $('#tableFilter').val(window.location.hash.substring(1)).keyup()
