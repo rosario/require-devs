@@ -1,8 +1,7 @@
-# Hi!
+# require('devs');
 
-![screenshot](https://raw.github.com/jlord/hack-spots/gh-pages/img/hackspotsss.png)
+![screenshot](https://raw.github.com/rosario/require-devs/gh-pages/img/require-devs.png)
 
-This is the code for a website that shows the spots myself, my friends (or Twitter friends) have found to be excellent hacking spots around the whole wide world.
 
 ### Fork -n- Go!
 
